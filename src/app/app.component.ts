@@ -9,6 +9,7 @@ import { environment } from '@env/environment';
 import { Logger, UntilDestroy, untilDestroyed } from '@shared';
 import { I18nService } from '@app/i18n';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { CredentialsService } from './auth/credentials.service';
 
 const log = new Logger('App');
 
@@ -25,7 +26,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private translateService: TranslateService,
     private i18nService: I18nService,
-    private oidcSecurityService: OidcSecurityService
+    private oidcSecurityService: OidcSecurityService,
+    private credentialsService: CredentialsService
   ) {}
 
   ngOnInit() {
@@ -67,6 +69,15 @@ export class AppComponent implements OnInit, OnDestroy {
       // log.info("userData: "+userData.name);
       log.info('accessToken: ' + accessToken);
       log.info('idToken: ' + idToken);
+
+      if (isAuthenticated) {
+        const data = {
+          username: userData.name,
+          token: accessToken,
+        };
+
+        this.credentialsService.setCredentials(data, true);
+      }
     });
   }
 

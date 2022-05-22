@@ -33,16 +33,6 @@ export class AuthenticationService {
    */
   login() {
     this.oidcSecurityService.authorize();
-    const data = {
-      username: '',
-      token: '',
-    };
-    this.oidcSecurityService.checkAuth().subscribe(({ accessToken, userData }) => {
-      data.token = accessToken;
-      data.username = userData.name;
-    });
-
-    this.credentialsService.setCredentials(data, true);
   }
 
   /**
@@ -54,6 +44,7 @@ export class AuthenticationService {
     this.credentialsService.setCredentials();
     this.oidcSecurityService.logoffAndRevokeTokens();
     this.oidcSecurityService.logoffLocal();
+
     return of(true);
   }
 }
