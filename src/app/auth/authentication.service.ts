@@ -31,10 +31,8 @@ export class AuthenticationService {
    * @param context The login parameters.
    * @return The user credentials.
    */
-  login(): Observable<Credentials> {
-    // Replace by proper authentication call
+  login() {
     this.oidcSecurityService.authorize();
-
     const data = {
       username: '',
       token: '',
@@ -45,7 +43,6 @@ export class AuthenticationService {
     });
 
     this.credentialsService.setCredentials(data, true);
-    return of(data);
   }
 
   /**
@@ -55,6 +52,8 @@ export class AuthenticationService {
   logout(): Observable<boolean> {
     // Customize credentials invalidation here
     this.credentialsService.setCredentials();
+    this.oidcSecurityService.logoffAndRevokeTokens();
+    this.oidcSecurityService.logoffLocal();
     return of(true);
   }
 }
