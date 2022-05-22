@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-
+import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { Logger } from '@shared';
 import { Credentials, CredentialsService } from './credentials.service';
+import { textChangeRangeIsUnchanged } from 'typescript';
 
 export interface LoginContext {
   username: string;
@@ -13,25 +15,36 @@ export interface LoginContext {
  * Provides a base for authentication workflow.
  * The login/logout methods should be replaced with proper implementation.
  */
-@Injectable({
-  providedIn: 'root'
-})
+const log = new Logger('Authen');
+@Injectable({ providedIn: 'root' })
 export class AuthenticationService {
+  isAuthenticated: boolean = false;
 
-  constructor(private credentialsService: CredentialsService) { }
+  constructor(private credentialsService: CredentialsService, private oidcSecurityService: OidcSecurityService) {
+    this.oidcSecurityService.isAuthenticated$.subscribe(({ isAuthenticated }) => {
+      this.isAuthenticated = isAuthenticated;
+    });
+  }
 
   /**
    * Authenticates the user.
    * @param context The login parameters.
    * @return The user credentials.
    */
-  login(context: LoginContext): Observable<Credentials> {
+  login(): Observable<Credentials> {
     // Replace by proper authentication call
+    this.oidcSecurityService.authorize();
+
     const data = {
-      username: context.username,
-      token: '123456'
+      username: '',
+      token: '',
     };
-    this.credentialsService.setCredentials(data, context.remember);
+    this.oidcSecurityService.checkAuth().subscribe(({ accessToken, userData }) => {
+      data.token = accessToken;
+      data.username = userData.name;
+    });
+
+    this.credentialsService.setCredentials(data, true);
     return of(data);
   }
 
@@ -44,5 +57,4 @@ export class AuthenticationService {
     this.credentialsService.setCredentials();
     return of(true);
   }
-
 }

@@ -15,6 +15,7 @@ import { ShellModule } from './shell/shell.module';
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthConfigModule } from './auth/auth-config.module';
 
 @NgModule({
   imports: [
@@ -30,25 +31,26 @@ import { AppRoutingModule } from './app-routing.module';
     HomeModule,
     AboutModule,
     AuthModule,
-    AppRoutingModule // must be imported as the last module as it contains the fallback route
+    AppRoutingModule,
+    AuthConfigModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
   providers: [
     {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ApiPrefixInterceptor,
-        multi: true
-      },
-      {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ErrorHandlerInterceptor,
-        multi: true
-      },
-      {
-        provide: RouteReuseStrategy,
-        useClass: RouteReusableStrategy
-      },
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiPrefixInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorHandlerInterceptor,
+      multi: true,
+    },
+    {
+      provide: RouteReuseStrategy,
+      useClass: RouteReusableStrategy,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
