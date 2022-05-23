@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService, CredentialsService } from '@app/auth';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-header',
@@ -26,8 +27,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     // this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
     this.authenticationService.logout();
-    window.location.href =
-      'https://dev-x83azoyi.us.auth0.com/v2/logout?returnTo=http://localhost:4200/login&client_id=rJlZrS6z2NWHvtRRAZLN1DBQWJzdwbuz';
+    window.location.href = `${environment.domainUrl}/v2/logout?returnTo=http://localhost:4200/login&client_id=${environment.clientId}`;
   }
 
   get username(): string | null {

@@ -15,6 +15,8 @@ export const environment = {
   version: env['npm_package_version'] + '-dev',
   serverUrl: '/api',
   defaultLanguage: 'en-US',
+  domainUrl: 'https://dev-x83azoyi.us.auth0.com',
+  clientId: 'rJlZrS6z2NWHvtRRAZLN1DBQWJzdwbuz',
   supportedLanguages: ['en-US', 'fr-FR'],
 };
 
