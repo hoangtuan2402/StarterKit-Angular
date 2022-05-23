@@ -1,20 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Logger } from '@app/@shared';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+
 import { CredentialsService } from './credentials.service';
 
 const log = new Logger('AuthenticationGuard');
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationGuard implements CanActivate {
-  constructor(
-    private router: Router,
-    private credentialsService: CredentialsService,
-    private oidcSecurityService: OidcSecurityService
-  ) {}
+  constructor(private router: Router, private credentialsService: CredentialsService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.credentialsService.isAuthenticated()) {
