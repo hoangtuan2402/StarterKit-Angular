@@ -20,4 +20,11 @@ export class Shell {
       canActivate: [AuthenticationGuard],
     };
   }
+  static childRoutesWithoutGuard(routes: Routes): Route {
+    return {
+      path: '',
+      component: ShellComponent,
+      children: routes,
+    };
+  }
 }
