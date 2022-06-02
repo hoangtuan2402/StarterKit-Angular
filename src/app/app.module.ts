@@ -16,6 +16,7 @@ import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthConfigModule } from './auth/auth-config.module';
+import { DetailModule } from '@app/detail/detail.module';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { AuthConfigModule } from './auth/auth-config.module';
     SharedModule,
     ShellModule,
     HomeModule,
+    DetailModule,
     AboutModule,
     AuthModule,
     AppRoutingModule,
