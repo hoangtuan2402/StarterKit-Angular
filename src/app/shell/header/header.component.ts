@@ -10,28 +10,24 @@ import { environment } from '@env/environment';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  menuHidden = true;
-
-  constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService,
-    private credentialsService: CredentialsService
-  ) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  toggleMenu() {
-    this.menuHidden = !this.menuHidden;
-  }
+  show: boolean = false;
 
-  logout() {
-    // this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
-    this.authenticationService.logout();
-    window.location.href = `${environment.domainUrl}/v2/logout?returnTo=http://localhost:4200/login&client_id=${environment.clientId}`;
+  showMenu() {
+    this.show = !this.show;
   }
-
-  get username(): string | null {
-    const credentials = this.credentialsService.credentials;
-    return credentials ? credentials.username : null;
+  isDark: boolean = false;
+  changeTheme() {
+    console.log('Change Theme processing');
+    if (this.isDark) {
+      document.documentElement.classList.remove('dark');
+      this.isDark = false;
+    } else {
+      document.documentElement.classList.add('dark');
+      this.isDark = true;
+    }
   }
 }
