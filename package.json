@@ -36,6 +36,7 @@
     "angular-auth-oidc-client": "14.0.1",
     "bootstrap": "^5.0.2",
     "dagre": "^0.8.5",
+    "ngx-owl-carousel-o": "^7.0.2",
     "rxjs": "^7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

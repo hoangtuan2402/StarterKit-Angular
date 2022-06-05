@@ -1,0 +1,44 @@
+<div
+  class="flex items-center justify-center w-full h-full sm:py-8 px-4 overflow-x-hidden overflow-y-hidden dark:bg-gray-800"
+>
+  <div class="w-full relative flex items-center justify-center">
+    <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+      <div class="absolute w-screen invisible md:visible">
+        <img src="{{ link }}" alt="" class="w-screen md:h-72 object-cover blur" />
+      </div>
+      <owl-carousel-o
+        [options]="customOptions"
+        (initialized)="getData($event)"
+        (changed)="getPassedData($event)"
+        id="slider"
+        class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
+      >
+        <ng-container
+          *ngFor="let slide of dynamicSlides; let i = index"
+          class="flex flex-shrink-0 relative w-full sm:w-auto"
+        >
+          <ng-template carouselSlide=" carouselSlide ">
+            <div *ngIf="i == currentPosition; else scaleCard" class="center">
+              <img
+                [src]="slide.src"
+                id="imgSlide "
+                [alt]="slide.alt"
+                [title]="slide.title"
+                class="rounded-lg object-cover shadow-2xl"
+              />
+            </div>
+            <ng-template #scaleCard>
+              <img
+                [src]="slide.src"
+                id="imgSlide "
+                [alt]="slide.alt"
+                [title]="slide.title"
+                class="rounded-lg object-cover shadow-2xl opacity-50 translate-x-4 slider-card-scale"
+              />
+            </ng-template>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>
