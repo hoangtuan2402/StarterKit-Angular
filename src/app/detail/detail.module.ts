@@ -5,9 +5,11 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { SharedModule } from '@shared';
 import { DetailRoutingComponent } from './detail-routing.module';
+import { ListChapterComponent } from './list-chapter/list-chapter.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
   imports: [CommonModule, TranslateModule, SharedModule, DetailRoutingComponent],
-  declarations: [DetailComponent],
+  declarations: [DetailComponent, ListChapterComponent, ReviewsComponent],
 })
 export class DetailModule {}

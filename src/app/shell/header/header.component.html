@@ -4,7 +4,6 @@
       <div>
         <a
           class="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
-          href="#"
           >Brand</a
         >
       </div>
@@ -27,30 +26,18 @@
     </div>
     <div [ngClass]="show ? 'lg:hidden flex flex-col text-gray-600 capitalize dark:text-gray-300 ' : 'hidden'">
       <a
-        href="#"
+        routerLink="/home"
+        routerLinkActive="active"
         class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >features</a
+        >Home</a
       >
       <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >downloads</a
+        routerLink="/detail"
+        routerLinkActive="active"
+        class="mt-2 cursor-pointer transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
+        >Detail</a
       >
-      <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >docs</a
-      >
-      <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >support</a
-      >
-      <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >blog</a
-      >
+
       <a
         *ngIf="isDark; else isSunMobile"
         (click)="changeTheme()"
@@ -115,35 +102,18 @@
       class="hidden flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center"
     >
       <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >features</a
+        routerLink="/home"
+        routerLinkActive="active"
+        class="mt-2 cursor-pointer transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
+        >Home</a
       >
       <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >downloads</a
+        routerLink="/detail"
+        routerLinkActive="active"
+        class="mt-2 cursor-pointer transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
+        >Detail</a
       >
-      <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >docs</a
-      >
-      <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >support</a
-      >
-      <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >blog</a
-      >
-      <a
-        href="#"
-        class="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
-        >blog</a
-      >
+
       <div class="relative mt-4 lg:mt-0 lg:mx-4">
         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none">
