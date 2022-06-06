@@ -1,0 +1,4 @@
+ng g c compo-name
+copy modul-file và Routing file
+Edit modul và Routing
+Declear new Modul Compo in App.modul

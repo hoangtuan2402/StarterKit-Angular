@@ -17,6 +17,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthConfigModule } from './auth/auth-config.module';
 import { DetailModule } from '@app/detail/detail.module';
+import { ReadingComponent } from './reading/reading.component';
+import { ReadingModule } from '@app/reading/reading.module';
 
 @NgModule({
   imports: [
@@ -30,6 +32,7 @@ import { DetailModule } from '@app/detail/detail.module';
     SharedModule,
     ShellModule,
     HomeModule,
+    ReadingModule,
     DetailModule,
     AboutModule,
     AuthModule,
