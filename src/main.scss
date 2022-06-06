@@ -5,14 +5,32 @@
 
 // Theme variables, must be included before the libraries to allow overriding defaults
 @import "theme/theme-variables";
-// 3rd party libraries
-// @import "~bootstrap/scss/bootstrap";
-// @import "~@fortawesome/fontawesome-free/scss/fontawesome";
-// @import "~@fortawesome/fontawesome-free/scss/brands";
-// @import "~@fortawesome/fontawesome-free/scss/regular";
-// @import "~@fortawesome/fontawesome-free/scss/solid";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 // Theme customization
 @import "theme/theme";
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  border-radius: 25px;
+  background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 25px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 25px;
+}
