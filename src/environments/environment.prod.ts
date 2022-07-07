@@ -11,7 +11,7 @@ export const environment = {
   version: env['npm_package_version'],
   serverUrl: 'https://api.chucknorris.io',
   domainUrl: 'https://dev-x83azoyi.us.auth0.com',
-  clientId: 'rJlZrS6z2NWHvtRRAZLN1DBQWJzdwbuz',
+  clientId: 'x6g3xNPAU7fEg0mpliff5591FfHsGFLQ',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR'],
 };

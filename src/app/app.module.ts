@@ -16,6 +16,7 @@ import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthConfigModule } from './auth/auth-config.module';
+import { NotifyModule } from './notification/custom-toast.module';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { AuthConfigModule } from './auth/auth-config.module';
     HomeModule,
     AboutModule,
     AuthModule,
+    NotifyModule,
     AppRoutingModule,
     AuthConfigModule, // must be imported as the last module as it contains the fallback route
   ],
